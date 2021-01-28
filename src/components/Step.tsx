@@ -15,7 +15,6 @@ interface Props {
   children: React.ReactNode
   keepTooltipPosition?: boolean
   tooltipBottomOffset?: number
-  image?: any
   borderRadiusObject?: BorderRadiusObject
 }
 
