@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type Shape =
   | 'circle'
   | 'rectangle'
@@ -10,6 +12,7 @@ export interface IStep {
   visible?: boolean
   target: any
   text: string
+  content?: ReactNode
   wrapper: any
   shape?: Shape
   maskOffset?: number

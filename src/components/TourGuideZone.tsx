@@ -9,6 +9,7 @@ export interface TourGuideZoneProps {
   isTourGuide?: boolean
   text?: string
   shape?: Shape
+  content?: React.ReactNode
   maskOffset?: number
   borderRadius?: number
   children?: React.ReactNode
@@ -23,6 +24,7 @@ export const TourGuideZone = ({
   zone,
   children,
   shape,
+  content,
   text,
   maskOffset,
   borderRadius,
@@ -39,6 +41,7 @@ export const TourGuideZone = ({
     <Step
       text={text ?? `Zone ${zone}`}
       order={zone}
+      content={content}
       name={`${zone}`}
       {...{
         shape,
