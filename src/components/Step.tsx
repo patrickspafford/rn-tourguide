@@ -7,6 +7,7 @@ interface Props {
   name: string
   order: number
   text: string
+  content?: React.ReactNode
   shape?: Shape
   active?: boolean
   maskOffset?: number
@@ -14,6 +15,7 @@ interface Props {
   children: React.ReactNode
   keepTooltipPosition?: boolean
   tooltipBottomOffset?: number
+  image?: any
   borderRadiusObject?: BorderRadiusObject
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { BorderRadiusObject, Shape } from '../types'
 import { ITourGuideContext } from './TourGuideContext'
 
@@ -8,6 +8,7 @@ interface Props {
   name: string
   text: string
   order: number
+  content?: React.ReactNode
   active?: boolean
   shape?: Shape
   context: ITourGuideContext

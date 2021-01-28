@@ -39,6 +39,7 @@ export const Tooltip = ({
       <Text testID='stepDescription' style={styles.tooltipText}>
         {currentStep && currentStep.text}
       </Text>
+      {currentStep && currentStep.content}
     </View>
     <View style={[styles.bottomBar]}>
       {!isLastStep ? (
