@@ -6,6 +6,7 @@ import { TourGuideZone } from './TourGuideZone'
 interface TourGuideZoneByPositionProps {
   zone: number
   isTourGuide?: boolean
+  content: React.ReactNode
   top?: number | string
   left?: number | string
   right?: number | string
@@ -24,6 +25,7 @@ export const TourGuideZoneByPosition = ({
   isTourGuide,
   zone,
   width,
+  content,
   height,
   top,
   left,
@@ -54,6 +56,7 @@ export const TourGuideZoneByPosition = ({
           tooltipBottomOffset,
           borderRadiusObject,
           text,
+          content,
         }}
         style={{
           position: 'absolute',
