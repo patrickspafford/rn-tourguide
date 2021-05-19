@@ -61,8 +61,7 @@ export const TourGuideProvider = ({
 
   useEffect(() => {
     if (mounted && visible === false) {
-      if (skipped) eventEmitter.emit('skip')
-      eventEmitter.emit('stop')
+      eventEmitter.emit(skipped ? 'skip' : 'stop')
     }
   }, [visible])
 
