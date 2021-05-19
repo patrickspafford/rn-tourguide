@@ -12,7 +12,7 @@ export interface TooltipProps {
   labels?: Labels
   handleNext?(): void
   handlePrev?(): void
-  handleStop?(): void
+  handleStop?(eventType: string): void
 }
 
 export const Tooltip = ({
