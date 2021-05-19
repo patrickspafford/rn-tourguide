@@ -63,7 +63,7 @@ export const TourGuideProvider = ({
     if (mounted && visible === false) {
       eventEmitter.emit(skipped ? 'skip' : 'stop')
     }
-  }, [visible])
+  }, [visible, skipped])
 
   useEffect(() => {
     if (visible || currentStep) {
