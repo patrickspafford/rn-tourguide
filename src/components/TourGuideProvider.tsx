@@ -60,8 +60,14 @@ export const TourGuideProvider = ({
   const modal = useRef<any>()
 
   useEffect(() => {
+    if (mounted && visible === false && skipped) {
+      eventEmitter.emit('skip')
+    }
+  }, [skipped])
+
+  useEffect(() => {
     if (mounted && visible === false) {
-      eventEmitter.emit(skipped ? 'skip' : 'stop')
+      eventEmitter.emit('stop')
     }
   }, [visible])
 
