@@ -129,6 +129,7 @@ export const TourGuideProvider = ({
     if (eventType === 'skip') {
       setSkipped(true)
     }
+    setSkipped(true)
     setVisible(false)
     setCurrentStep(undefined)
   }
