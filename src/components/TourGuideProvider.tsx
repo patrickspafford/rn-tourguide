@@ -127,22 +127,8 @@ export const TourGuideProvider = ({
 
   const prev = () => setCurrentStep(getPrevStep()!)
 
-  const emitEvent = (isSkip: boolean) => {
-    return new Promise<void>((resolve, reject) => {
-      try {
-        isSkip ? eventEmitter.emit('skip') : eventEmitter.emit('stop')
-        resolve()
-      } catch (err) {
-        reject(err)
-      }
-    })
-  }
-
-  const stop = async (eventType?: string) => {
-    try {
-      console.warn(`Event type ${eventType}`)
-      await emitEvent(eventType === 'skip')
-    } catch (err) {}
+  const stop = (eventType?: string) => {
+    eventEmitter.emit(eventType === 'skip' ? 'skip' : 'stop')
     setVisible(false)
     setCurrentStep(undefined)
   }

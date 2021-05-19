@@ -254,15 +254,7 @@ export class Modal extends React.Component<ModalProps, State> {
 
   handleStop = (eventType?: string) => {
     this.reset()
-    if (eventType) {
-      if (eventType === 'skip') {
-        this.props.stop('skip')
-      } else {
-        this.props.stop('stop')
-      }
-      return
-    }
-    this.props.stop()
+    this.props.stop(eventType === 'skip' ? 'skip' : 'stop')
   }
 
   renderMask = () => (
