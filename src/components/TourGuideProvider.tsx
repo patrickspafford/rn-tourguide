@@ -113,9 +113,10 @@ export const TourGuideProvider = ({
 
   const getLastStep = () => utils.getLastStep(steps!)
 
-  const isFirstStep = useMemo(() => currentStep === getFirstStep(), [
-    currentStep,
-  ])
+  const isFirstStep = useMemo(
+    () => currentStep === getFirstStep(),
+    [currentStep],
+  )
 
   const isLastStep = useMemo(() => currentStep === getLastStep(), [currentStep])
 
@@ -123,7 +124,10 @@ export const TourGuideProvider = ({
 
   const prev = () => setCurrentStep(getPrevStep()!)
 
-  const stop = () => {
+  const stop = (eventType?: string) => {
+    if (eventType === 'skip') {
+      eventEmitter.emit('skip')
+    }
     setVisible(false)
     setCurrentStep(undefined)
   }

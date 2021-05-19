@@ -33,7 +33,7 @@ export interface ModalProps {
   backdropColor: string
   labels: Labels
   easing(value: number): number
-  stop(): void
+  stop(eventType?: string): void
   next(): void
   prev(): void
 }
@@ -252,8 +252,16 @@ export class Modal extends React.Component<ModalProps, State> {
     this.props.prev()
   }
 
-  handleStop = () => {
+  handleStop = (eventType?: string) => {
     this.reset()
+    if (eventType) {
+      if (eventType === 'skip') {
+        this.props.stop('skip')
+      } else {
+        this.props.stop('stop')
+      }
+      return
+    }
     this.props.stop()
   }
 
