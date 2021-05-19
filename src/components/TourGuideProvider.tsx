@@ -49,6 +49,7 @@ export const TourGuideProvider = ({
   const [visible, setVisible] = useState<boolean | undefined>(undefined)
   const [currentStep, updateCurrentStep] = useState<IStep | undefined>()
   const [steps, setSteps] = useState<Steps>({})
+  const [skipped, setSkipped] = useState(false)
   const [canStart, setCanStart] = useState<boolean>(false)
 
   const startTries = useRef<number>(0)
@@ -60,6 +61,7 @@ export const TourGuideProvider = ({
 
   useEffect(() => {
     if (mounted && visible === false) {
+      if (skipped) eventEmitter.emit('skip')
       eventEmitter.emit('stop')
     }
   }, [visible])
@@ -126,7 +128,7 @@ export const TourGuideProvider = ({
 
   const stop = (eventType?: string) => {
     if (eventType === 'skip') {
-      eventEmitter.emit('skip')
+      setSkipped(true)
     }
     setVisible(false)
     setCurrentStep(undefined)
