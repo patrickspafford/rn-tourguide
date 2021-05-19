@@ -140,6 +140,7 @@ export const TourGuideProvider = ({
 
   const stop = async (eventType?: string) => {
     try {
+      console.warn(`Event type ${eventType}`)
       await emitEvent(eventType === 'skip')
     } catch (err) {}
     setVisible(false)
