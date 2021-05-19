@@ -63,7 +63,7 @@ export const TourGuideProvider = ({
     if (mounted && visible === false) {
       eventEmitter.emit(skipped ? 'skip' : 'stop')
     }
-  }, [skipped])
+  }, [visible])
 
   useEffect(() => {
     if (visible || currentStep) {
@@ -129,8 +129,7 @@ export const TourGuideProvider = ({
     if (eventType === 'skip') {
       setSkipped(true)
     }
-    setSkipped(true)
-    setVisible(false)
+    setTimeout(() => setVisible(false), 250)
     setCurrentStep(undefined)
   }
 
@@ -172,7 +171,6 @@ export const TourGuideProvider = ({
       eventEmitter.emit('start')
       await setCurrentStep(currentStep!)
       setVisible(true)
-      // setSkipped(false)
       startTries.current = 0
     }
   }
